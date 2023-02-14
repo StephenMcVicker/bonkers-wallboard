@@ -39,10 +39,10 @@ export default defineComponent({
 
   @media (prefers-color-scheme: dark) {
     background: $color-dark;
-    border-color: $color-bonkers-mint;
+    border-color: rgba($color-bonkers-mint, 0.2);
     box-shadow: rgba(94, 94, 134, 0.25) 0px 30px 60px -12px,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-    color: $color-white;
+    color: $color-grey;
   }
 }
 </style>

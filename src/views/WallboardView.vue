@@ -1,6 +1,6 @@
 <template lang="pug">
 main
-  h1 At a glance...
+  h1 Good morning!
   ui-card(:full-width="true")
     .stats
       .stat
@@ -92,6 +92,18 @@ import UiPill from "@/components/ui/UiPill.vue";
 main {
   min-height: 100vh;
   padding: 1rem;
+}
+
+h3 {
+  color: $color-dark;
+
+  @media (prefers-color-scheme: dark) {
+    color: $color-white;
+  }
+}
+
+svg {
+  color: $color-bonkers-mint;
 }
 
 .cards {
