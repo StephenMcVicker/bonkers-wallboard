@@ -1,15 +1,28 @@
 <template lang="pug">
-.ui-pill(:class="`${props.kind}`")
+.ui-pill(:class="`${kind}`")
   slot
 </template>
 
-<script setup lang="ts">
-export interface Props {
-  kind?: string;
+<script lang="ts">
+import { defineComponent } from "vue";
+
+interface Props {
+  kind: "primary" | "secondary" | "danger" | "warning";
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  kind: "",
+export default defineComponent({
+  props: {
+    kind: {
+      type: String,
+      default: "primary",
+      validator: (value: string) =>
+        ["primary", "secondary", "danger", "warning"].includes(value),
+    },
+  },
+  setup(props: Props) {
+    // component logic goes here
+    return {};
+  },
 });
 </script>
 

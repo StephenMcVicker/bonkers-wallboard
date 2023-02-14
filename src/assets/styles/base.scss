@@ -14,13 +14,18 @@ html, body {
 body {
   min-height: 100vh;
   color: $color-secondary;
-  background-color: $color-bonkers;
-  background-image: linear-gradient(135deg, #56c55d 0%, #00b94d 100%);
+  background-color: $color-white;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
   line-height: 1.6;
   font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media (prefers-color-scheme: dark) {
+    background-image: linear-gradient(60deg, #1a222a 0%, #132334 100%);
+    color: $color-white;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
