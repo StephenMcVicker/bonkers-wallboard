@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "chart.js": "^4.2.1",
+    "chartjs-chart-radial-gauge": "^1.1.0",
     "pinia": "^2.0.28",
     "pug": "^3.0.2",
     "sass": "^1.58.0",

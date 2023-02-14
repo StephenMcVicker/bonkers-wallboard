@@ -1,5 +1,9 @@
 <template lang="pug">
 section
+  .chartSection
+    h2 My Chart
+    MyChart
+    GaugeChart
   .cards
     ui-card(:full-width="true")
       h3 This is a card with a header
@@ -22,6 +26,9 @@ section
 import UiButton from "@/components/ui/UiButton.vue";
 import UiCard from "@/components/ui/UiCard.vue";
 import UiPill from "@/components/ui/UiPill.vue";
+import MyChart from "@/components/my-chart.vue";
+import GaugeChart from "@/components/gauge-chart.vue";
+import Chart from 'chart.js/auto';
 </script>
 
 <style lang="scss" scoped>
@@ -36,5 +43,9 @@ import UiPill from "@/components/ui/UiPill.vue";
   display: flex;
   gap: 0.4rem;
   margin-bottom: 1rem;
+}
+
+.chartSection {
+  background-color: white;
 }
 </style>

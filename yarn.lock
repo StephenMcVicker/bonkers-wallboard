@@ -631,6 +631,11 @@ chart.js@^4.2.1:
   dependencies:
     "@kurkle/color" "^0.3.0"
 
+chartjs-chart-radial-gauge@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/chartjs-chart-radial-gauge/-/chartjs-chart-radial-gauge-1.1.0.tgz#dc235151bddc009aee93fdeade50cce63d1abdef"
+  integrity sha512-Wg6afw8VMXV/bgjaAsso9Zu3B/CzkJnW8P2nQRoAenZ5ay9pgoigR5431X4lD+jxRnYu0D8VJNQ2tiNEehdcMg==
+
 "chokidar@>=3.0.0 <4.0.0":
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
