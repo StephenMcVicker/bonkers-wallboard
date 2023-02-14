@@ -23,6 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   @media (prefers-color-scheme: dark) {
+    background-color: #132334;
     background-image: linear-gradient(60deg, #1a222a 0%, #132334 100%);
     color: $color-white;
   }

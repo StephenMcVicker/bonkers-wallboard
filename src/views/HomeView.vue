@@ -1,6 +1,6 @@
 <template lang="pug">
 .home
-  h1 This is the home page
+  h1 UI Examples
   test-ui
 </template>
 

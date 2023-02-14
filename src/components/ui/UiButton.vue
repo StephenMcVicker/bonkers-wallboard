@@ -1,16 +1,22 @@
 <template lang="pug">
 button
-  slot(name="icon-left")
+  font-awesome-icon(v-if="props.iconLeft"
+                    :icon="['far', props.iconLeft]")
   span {{ props.text }}
-  slot(name="icon-right")
+  font-awesome-icon(v-if="props.iconRight"
+                    :icon="['far', props.iconRight]")
 </template>
 
 <script setup lang="ts">
 export interface Props {
+  iconLeft?: string | null;
+  iconRight?: string | null;
   text?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  iconLeft: null,
+  iconRight: null,
   text: "",
 });
 </script>
@@ -22,6 +28,8 @@ button {
   cursor: pointer;
   border: 0;
   border-radius: 50vh;
+  display: inline-flex;
+  gap: 0.5rem;
   padding: 1rem 1.2rem;
   transition: all 0.2s ease-in-out;
 

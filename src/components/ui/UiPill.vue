@@ -1,5 +1,6 @@
 <template lang="pug">
 .ui-pill(:class="`${kind}`")
+  p {{ text }}
   slot
 </template>
 
@@ -8,6 +9,7 @@ import { defineComponent } from "vue";
 
 interface Props {
   kind: "primary" | "secondary" | "danger" | "warning";
+  text?: string | null;
 }
 
 export default defineComponent({
@@ -17,6 +19,10 @@ export default defineComponent({
       default: "primary",
       validator: (value: string) =>
         ["primary", "secondary", "danger", "warning"].includes(value),
+    },
+    text: {
+      type: String,
+      default: null,
     },
   },
   setup(props: Props) {
@@ -28,11 +34,11 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .ui-pill {
+  align-items: center;
   background: $color-secondary-alt;
   border-radius: 50vh;
   display: inline-flex;
-  font-size: 0.5rem;
-  font-weight: 600;
+  justify-content: center;
   padding: 4px 8px;
   position: relative;
 
@@ -49,6 +55,12 @@ export default defineComponent({
   &.warning {
     background: $color-orange-alt;
     color: $color-white;
+  }
+
+  p {
+    font-size: 0.5rem;
+    font-weight: 600;
+    margin: 0;
   }
 }
 </style>
