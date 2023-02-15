@@ -1,7 +1,6 @@
-<template>
-  <div>
-    <bar ref="barChart" :data="chartData" />
-  </div>
+<template lang="pug">
+.barChartWrapper
+  bar(ref="barChart" :data="chartData")
 </template>
 
 <script>
@@ -31,3 +30,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.barChartWrapper {
+  width: 300px;
+  height: 300px;
+  
+}
+</style>

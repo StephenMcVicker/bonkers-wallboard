@@ -1,52 +1,70 @@
-<template>
-  <div class="chartWrapper">
-    <doughnut ref="Chart" :data="chartData" />
-  </div>
-  Current Score = {{ myChartData.value }}
-  <button @click="updateChart">Update Chart</button>
+<template lang="pug">
+.chartWrapper
+  doughnut(ref="doughnutRef" :data="chartData")
+p Current Score = {{ score }}
 </template>
 
 <script>
-import { defineComponent, onMounted, reactive, computed } from "vue";
+import { defineComponent, getCurrentInstance, onMounted, reactive, ref, computed, watch } from "vue";
 import { Doughnut } from "vue-chartjs";
 import { Chart } from "chart.js";
-
 
 
 export default defineComponent({
   components: {
     Doughnut,
   },
+  props: {
+    newData: {
+      type: Number,
+      default: 100,
+    },
+    score: {
+      type: Number,
+      default: 100,
+    },
+  },
+  
 
-setup() {
+setup(props) {
+    
+    const doughnutRef = ref(null);
+
     const Target = 1000;
+
     const myChartData = reactive({
-      value: 700,
+      value: 600,
     });
 
     const remainingScore = reactive({
-      value: computed(() => Target - myChartData.value),
+      value: computed(() => Target - props.score),
     });
 
-    function updateChart(){
-      myChartData.value += 100;
-      console.log(remainingScore.value)
-      console.log(myChartData.value);
-    };
-
-    let chartData = {
-      labels: ["Score", "Gray Area"],
+    let chartData = reactive({
+      labels: ["Score", "Remaining"],
       datasets: [
         {
           label: "Data One",
           aspectRatio: 1.5,
-          backgroundColor: ["green", "rgba(0, 0, 0, 0.2)"],
-          borderColor: ["green", "rgba(0, 0, 0, 0.2)"],
+          backgroundColor: ["green", "rgba(0, 0, 0, 0.2)", "red"],
+          borderColor: ["green", "rgba(0, 0, 0, 0.2)", "red"],
           borderwidth: 1,
           cutout: "90%",
-          data: [myChartData.value, remainingScore.value],
+          data: [props.score, remainingScore.value],
         },
       ],
+    });
+
+    function updateChart() {
+      myChartData.value += 100;
+      
+      if(doughnutRef.value) {
+        doughnutRef.value.update();
+      }
+      console.log(myChartData.value);
+      console.log(remainingScore.value)
+      
+      
     };
 
     return {
@@ -60,8 +78,8 @@ setup() {
 
 <style lang="scss" scoped>
 .chartWrapper {
-  border: 1px solid red;
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
 }
 </style>

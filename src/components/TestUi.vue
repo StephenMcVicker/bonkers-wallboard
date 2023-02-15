@@ -1,34 +1,39 @@
 <template lang="pug">
 section
   .chartSection
-    h2 My Chart
     MyChart
-    GaugeChart
-  .cards
-    ui-card(:full-width="true")
-      h3 This is a card with a header
-      .pills
-        ui-pill(kind="primary") Primary Pill
-        ui-pill(kind="danger") Danger Pill
-        ui-pill(kind="warning") Warning Pill
-        ui-pill Default Pill
-      p This is a full width card
-      ui-button(text="This is a button")
-    ui-card
-      p This is a card
-    ui-card
-      p This is a card
-    ui-card
-      p This is a card
+    GaugeChart(:key="newKey" :score="Score")
+    <button @click="forceRerender">Refresh Chart by updating key</button>  
+
 </template>
 
 <script setup>
+import {
+  defineComponent,
+  getCurrentInstance,
+  onMounted,
+  reactive,
+  ref,
+  computed,
+  watch,
+} from "vue";
 import UiButton from "@/components/ui/UiButton.vue";
 import UiCard from "@/components/ui/UiCard.vue";
 import UiPill from "@/components/ui/UiPill.vue";
 import MyChart from "@/components/my-chart.vue";
 import GaugeChart from "@/components/gauge-chart.vue";
-import Chart from 'chart.js/auto';
+import Chart from "chart.js/auto";
+
+const newKey = ref(0);
+
+let Score = 700;
+
+const forceRerender = () => {
+  
+  newKey.value += 1;
+  console.log("newKey is", newKey.value);
+  Score += 100;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -47,5 +52,6 @@ import Chart from 'chart.js/auto';
 
 .chartSection {
   background-color: white;
+  padding: 1rem;
 }
 </style>
