@@ -5,6 +5,23 @@ section
     GaugeChart(:key="newKey" :score="Score")
     <button @click="forceRerender">Refresh Chart by updating key</button>  
 
+  .cards
+    ui-card(:full-width="true")
+      h3 This is a card with a header
+      .pills
+        ui-pill(kind="primary" text="Primary Pill")
+        ui-pill(kind="danger" text="Danger Pill")
+        ui-pill(kind="warning" text="Warning Pill")
+        ui-pill(text="Default Pill")
+      p This is a full width card
+      ui-button(iconLeft="user"
+                text="button with an icon")
+    ui-card
+      p This is a card
+    ui-card
+      p This is a card
+    ui-card
+      p This is a card
 </template>
 
 <script setup>

@@ -2,7 +2,7 @@
 main
   nav
     router-link(to="/") Home
-    router-link(to="/about") About
+    router-link(to="/wallboard") Wallboard
   router-view
 </template>
 
@@ -12,4 +12,12 @@ import { RouterLink, RouterView } from "vue-router";
 
 <style lang="scss">
 @import "@/assets/styles/main.scss";
+</style>
+
+<style lang="scss" scoped>
+nav {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem;
+}
 </style>
