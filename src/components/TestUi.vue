@@ -1,27 +1,29 @@
 <template lang="pug">
 section
   .chartSection
-    MyChart
     GaugeChart(:key="newKey" :score="Score")
-    <button @click="forceRerender">Refresh Chart by updating key</button>  
+    GaugeChart(:key="newKey" :score="Score")
+    GaugeChart(:key="newKey" :score="Score")
+    GaugeChart(:key="newKey" :score="Score")
+  button(@click="forceRerender") Refresh Chart by updating key 
 
-  .cards
-    ui-card(:full-width="true")
-      h3 This is a card with a header
-      .pills
-        ui-pill(kind="primary" text="Primary Pill")
-        ui-pill(kind="danger" text="Danger Pill")
-        ui-pill(kind="warning" text="Warning Pill")
-        ui-pill(text="Default Pill")
-      p This is a full width card
-      ui-button(iconLeft="user"
-                text="button with an icon")
-    ui-card
-      p This is a card
-    ui-card
-      p This is a card
-    ui-card
-      p This is a card
+  //- .cards
+  //-   ui-card(:full-width="true")
+  //-     h3 This is a card with a header
+  //-     .pills
+  //-       ui-pill(kind="primary" text="Primary Pill")
+  //-       ui-pill(kind="danger" text="Danger Pill")
+  //-       ui-pill(kind="warning" text="Warning Pill")
+  //-       ui-pill(text="Default Pill")
+  //-     p This is a full width card
+  //-     ui-button(iconLeft="user"
+  //-               text="button with an icon")
+  //-   ui-card
+  //-     p This is a card
+  //-   ui-card
+  //-     p This is a card
+  //-   ui-card
+  //-     p This is a card
 </template>
 
 <script setup>
@@ -70,5 +72,9 @@ const forceRerender = () => {
 .chartSection {
   background-color: white;
   padding: 1rem;
+  border:1px solid grey;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
 }
 </style>
