@@ -5,74 +5,76 @@ main.mainWrapper
       font-awesome-icon(:icon="['fas','lightbulb']")
       .stat
         p Energy
-        h3 64
+        p.conversions 64
     ui-card
       font-awesome-icon(:icon="['fas','lightbulb']")
       .stat
         p Commercial Energy
-        h3 19
+        p.conversions 19
     ui-card
       font-awesome-icon(:icon="['fas','wifi']")
       .stat
         p Broadband
-        h3 35
+        p.conversions 35
     ui-card
       font-awesome-icon(:icon="['fas','house']")
       .stat
         p Home Insurance
-        h3 18
+        p.conversions 18
     ui-card
       font-awesome-icon(:icon="['fas','car']")
       .stat
         p Car Insurance
-        h3 4
+        p.conversions 4
     ui-card
       font-awesome-icon(:icon="['fas','life-ring']")
       .stat
         p Life Insurance
-        h3 4
+        p.conversions 4
     ui-card
       font-awesome-icon(:icon="['fas','person-walking-with-cane']")
       .stat
         p Serious Illness
-        h3 0
+        p.conversions 0
     ui-card
       font-awesome-icon(:icon="['fas','house-lock']")
       .stat
         p Mortgage Protection
-        h3 5
+        p.conversions 5
     ui-card
       font-awesome-icon(:icon="['fas','house-user']")
       .stat
         p Mortgages
-        h3 95 + 2
+        p.conversions 95 + 2
     ui-card
       font-awesome-icon(:icon="['fas','hand-holding-dollar']")
       .stat
         p Loans
-        h3 19
+        p.conversions 19
     ui-card
       font-awesome-icon(:icon="['fas','money-bill-transfer']")
       .stat
         p Current Accounts
-        h3 22
+        p.conversions 22
     ui-card
       font-awesome-icon(:icon="['fas','money-bill-trend-up']")
       .stat
         p Savings Accounts
-        h3 22
+        p.conversions 22
     ui-card
       font-awesome-icon(:icon="['fas','credit-card']")
       .stat
         p Prepaid Cards
-        h3 5
+        p.conversions 5
     ui-card
       font-awesome-icon(:icon="['fas','credit-card']")
       .stat
         p Credit Cards
-        h3 623   
+        p.conversions 623 
+  section.gauges            
     GaugeCharts 
-    PieChart          
+    PieChart
+    PieChart           
 </template>
 
 <script setup>
@@ -104,11 +106,15 @@ svg {
 .cards {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
   gap: 1rem;
   justify-content: center;
   margin: 1rem 0;
   font-size: 16px;
+
+  @media screen and (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
 }
 
 .stats {
@@ -122,11 +128,24 @@ svg {
     display: flex;
     flex-direction: column;
     font-size: 16px;
-
-    :deep(p) {
-      font-size: 12px;
-      color: pink !important;
-    }
   }
+}
+
+.gauges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  @media screen and (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 300px;
+  }
+}
+
+.conversions {
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 </style>

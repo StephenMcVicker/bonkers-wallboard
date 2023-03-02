@@ -74,9 +74,13 @@ const forceRerender = () => {
   gap: 1rem;
   border-radius: 16px;
   flex-wrap: wrap;
-  max-width: 1000px;
-  width: fit-content;
+  width: 100%;
   position: relative;
+
+  @media screen and (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 button {

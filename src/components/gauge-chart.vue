@@ -122,10 +122,10 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .chartWrapper {
-  width: 250px;
-  height: 280px;
+  width: 100%;
   padding: 10px;
   margin: 0 auto;
+  width: 250px;
   border: 1px solid rgba(128, 128, 128, 0.068);
   border-radius: 16px;
   position: relative;

@@ -46,6 +46,9 @@ export default defineComponent({
 
      const options = {
       responsive: true,
+      layout: {
+        padding: 60,
+      },
       // maintainAspectRatio: true,
       plugins: {
         legend: {
@@ -61,7 +64,6 @@ export default defineComponent({
     const pieRef = ref(null);
 
     const Target = 100;
-
 
     let scoreAsPercentage = 70;
 
@@ -112,16 +114,19 @@ export default defineComponent({
 <style lang="scss" scoped>
 .chartWrapper {
   min-width: 250px;
-  min-height: 280px;
-  max-width: 500px;
-  padding: 10px;
+  max-height: 380px;
   margin: 0 auto;
   border: 1px solid rgba(128, 128, 128, 0.068);
   border-radius: 16px;
   position: relative;
+  padding: 1rem;
+  padding-bottom: 2rem;
   color: white;
   text-align: center;
   background: $chart-background;
+  width: 100%;
+  display: grid;
+  place-items: center;
 }
 
 </style>

@@ -30,8 +30,11 @@ export default defineComponent({
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   border: 1px solid $color-secondary-alt;
   padding: 10px;
-  width: 160px;
-  height: 160px;
+  width: 130px;
+
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+  }
 
   &.full-width {
     width: 100%;
