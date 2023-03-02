@@ -71,10 +71,11 @@ main.mainWrapper
       .stat
         p Credit Cards
         p.conversions 623 
-  section.gauges            
+  .gauges            
     GaugeCharts 
     PieChart
-    PieChart           
+    .redDiv
+    .blueDiv         
 </template>
 
 <script setup>
@@ -89,6 +90,7 @@ import PieChart from "@/components/PieChart.vue";
 main {
   min-height: 100vh;
   padding: 1rem;
+  padding-top: 0;
 }
 
 h3 {
@@ -138,9 +140,10 @@ svg {
 
   @media screen and (min-width: 1000px) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    height: 300px;
+    grid-template-areas:
+      "a a"
+      "b c"
+      "b d";
   }
 }
 
@@ -148,4 +151,32 @@ svg {
   font-size: 1.25rem;
   font-weight: 700;
 }
+
+.redDiv {
+  background-color: red;
+  height: 170px;
+  width: 100%;
+  border-radius: 10px;
+  grid-area: c;
+}
+
+.blueDiv {
+  background-color: blue;
+  height: 100px;
+  border-radius: 10px;
+  width: 100%;
+  grid-area: d;
+}
+
+@media screen and (min-width: 1000px) {
+  .redDiv {
+    min-width: 600px;
+  }
+
+  .blueDiv {
+    min-width: 600px;
+  }
+}
+
+
 </style>

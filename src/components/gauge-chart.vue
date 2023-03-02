@@ -130,6 +130,10 @@ export default defineComponent({
   border-radius: 16px;
   position: relative;
   background: $chart-background;
+
+  @media screen and (min-width: 1200px) {
+    width: 200px;
+  }
 }
 
 .scorePercent {

@@ -1,13 +1,12 @@
 <template lang="pug">
-section
-  .chartSection
-    GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent")
-    GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="wifi")
-    GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="house")
-    GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="car")
-    GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="umbrella")
-    GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="wifi")
-    
+.chartSection
+  GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent")
+  GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="wifi")
+  GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="house")
+  GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="car")
+  GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="umbrella")
+  GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="wifi")
+
   button(@click="forceRerender") Refresh Chart by updating key (also adds 10 to score)
 
   //- .cards
@@ -68,7 +67,6 @@ const forceRerender = () => {
 
 .chartSection {
   background: $chart-background;
-  padding: 1rem;
   border: 1px solid rgba(128, 128, 128, 0.328);
   display: flex;
   gap: 1rem;
@@ -79,14 +77,15 @@ const forceRerender = () => {
 
   @media screen and (min-width: 1000px) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-area: a;
   }
 }
 
 button {
   border-radius: 10px;
-  margin: 30px auto;
-  position: relative;
+  margin: 0px auto;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }

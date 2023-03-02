@@ -18,6 +18,5 @@ import { RouterLink, RouterView } from "vue-router";
 nav {
   display: flex;
   gap: 1rem;
-  margin: 1rem;
 }
 </style>

@@ -114,19 +114,18 @@ export default defineComponent({
 <style lang="scss" scoped>
 .chartWrapper {
   min-width: 250px;
-  max-height: 380px;
+  max-height: 300px;
   margin: 0 auto;
   border: 1px solid rgba(128, 128, 128, 0.068);
   border-radius: 16px;
   position: relative;
-  padding: 1rem;
-  padding-bottom: 2rem;
   color: white;
   text-align: center;
   background: $chart-background;
   width: 100%;
   display: grid;
   place-items: center;
+  grid-area: b;
 }
 
 </style>
