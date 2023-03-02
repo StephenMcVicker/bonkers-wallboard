@@ -22,6 +22,7 @@ import {
   faMoneyBillTrendUp,
   faPersonWalkingWithCane,
   faWifi,
+  faUmbrella,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
@@ -38,6 +39,7 @@ library.add(
   faMoneyBillTransfer,
   faMoneyBillTrendUp,
   faPersonWalkingWithCane,
+  faUmbrella,
   faWifi
 ); // solid
 

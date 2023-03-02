@@ -1,11 +1,7 @@
 <template lang="pug">
 .chartWrapper
-  doughnut(ref="doughnutRef" :data="chartData" :options="options")
-  span.scorePercent {{ scoreAsPercent }}%
-  span.icon 
-    font-awesome-icon(:icon="['fas',`${icon}`]")
-  span.score Score = {{ score }}
-  span.score Target = {{ Target }}
+  p Quarterly Breakdown - Product
+  Pie(ref="pieRef" :data="chartData" :options="options")
 </template>
 
 <script>
@@ -20,12 +16,12 @@ import {
   computed,
   watch,
 } from "vue";
-import { Doughnut } from "vue-chartjs";
+import { Pie } from 'vue-chartjs'
 import { Chart } from "chart.js";
 
 export default defineComponent({
   components: {
-    Doughnut,
+    Pie,
   },
   props: {
     newData: {
@@ -49,28 +45,23 @@ export default defineComponent({
   setup(props) {
 
      const options = {
+      responsive: true,
+      // maintainAspectRatio: true,
       plugins: {
         legend: {
-          display: false,
+          display: true,
           position: "bottom",
+          labels: {
+            color: "white",
+          },
         },
       },
     };
 
-    const doughnutRef = ref(null);
+    const pieRef = ref(null);
 
     const Target = 100;
 
-    let variableColour = "lightgreen";
-    if (props.scoreAsPercent < 50) {
-      variableColour = "red";
-    } else if (props.scoreAsPercent < 75) {
-      variableColour = "orange";
-    } else if (props.scoreAsPercent < 100) {
-      variableColour = "lightgreen";
-    } else {
-      variableColour = "green";
-    }
 
     let scoreAsPercentage = 70;
 
@@ -83,16 +74,14 @@ export default defineComponent({
     });
 
     let chartData = reactive({
-      labels: ["Score", "Remaining"],
+      labels: ["Life Insurance", "Serious Illness", "Mortgage Protection"],
       datasets: [
         {
           label: "Data One",
-          aspectRatio: 1.5,
-          backgroundColor: [variableColour, "rgba(0, 0, 0, 0.2)"],
-          borderColor: [variableColour, "rgba(0, 0, 0, 0.2)"],
+          backgroundColor: ['lightgreen', 'lightyellow', 'lightblue'],
           borderwidth: 1,
-          cutout: "90%",
-          data: [props.score, remainingScore.value],
+          data: [20, 60, 20],
+          color: "white",
         },
       ],
     });
@@ -100,8 +89,8 @@ export default defineComponent({
     function updateChart() {
       myChartData.value += 100;
 
-      if (doughnutRef.value) {
-        doughnutRef.value.update();
+      if (pieRef.value) {
+        pieRef.value.update();
       }
       console.log(myChartData.value);
       console.log(remainingScore.value);
@@ -122,41 +111,17 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .chartWrapper {
-  width: 250px;
-  height: 280px;
+  min-width: 250px;
+  min-height: 280px;
+  max-width: 500px;
   padding: 10px;
   margin: 0 auto;
   border: 1px solid rgba(128, 128, 128, 0.068);
   border-radius: 16px;
   position: relative;
+  color: white;
+  text-align: center;
   background: $chart-background;
 }
 
-.scorePercent {
-  position: absolute;
-  top: 47%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.score {
-  position: relative;
-  font-size: 10px;
-  padding: 10px 10px;
-  left: 15%;
-  text-align: center;
-}
-
-.icon {
-  position: absolute;
-  top: 57%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  font-weight: bold;
-  font-size: 1rem;
-}
 </style>

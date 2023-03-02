@@ -1,11 +1,10 @@
 <template lang="pug">
 .home
-  h1 UI Examples
-  test-ui
+  GaugeCharts
 </template>
 
 <script setup lang="ts">
-import TestUi from "../components/TestUi.vue";
+import GaugeCharts from "../components/GaugeCharts.vue";
 </script>
 
 <style lang="scss" scoped>
