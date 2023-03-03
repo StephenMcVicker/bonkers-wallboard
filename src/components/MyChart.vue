@@ -49,6 +49,10 @@ export default defineComponent({
 .barChartWrapper {
   position: relative;
   min-width: 100%;
-  height: 110px;
+  height: 100px;
+
+  @media screen and (min-width: 1800px) {
+    height: 160px;
+  }
 }
 </style>
