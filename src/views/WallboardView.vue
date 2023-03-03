@@ -75,7 +75,9 @@ main.mainWrapper
     GaugeCharts 
     PieChart
     .redDiv
-    .blueDiv         
+      LineChart 
+    .blueDiv 
+      MyChart
 </template>
 
 <script setup>
@@ -84,6 +86,8 @@ import UiCard from "@/components/ui/UiCard.vue";
 import UiPill from "@/components/ui/UiPill.vue";
 import GaugeCharts from "@/components/GaugeCharts.vue";
 import PieChart from "@/components/PieChart.vue";
+import MyChart from "@/components/MyChart.vue";
+import LineChart from "@/components/LineChart.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -153,15 +157,16 @@ svg {
 }
 
 .redDiv {
-  background-color: red;
+  background-color: $chart-background;
   height: 170px;
+  position: relative;
   width: 100%;
   border-radius: 10px;
   grid-area: c;
 }
 
 .blueDiv {
-  background-color: blue;
+  background-color: $chart-background;
   height: 100px;
   border-radius: 10px;
   width: 100%;
@@ -178,5 +183,13 @@ svg {
   }
 }
 
+@media screen and (min-width: 1800px) {
+  .redDiv {
+    height: 200px;
+  }
 
+  .blueDiv {
+    height: 160px !important;
+  }
+}
 </style>

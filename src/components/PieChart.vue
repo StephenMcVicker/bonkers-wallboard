@@ -47,7 +47,7 @@ export default defineComponent({
      const options = {
       responsive: true,
       layout: {
-        padding: 60,
+        padding: 20,
       },
       // maintainAspectRatio: true,
       plugins: {
@@ -126,6 +126,10 @@ export default defineComponent({
   display: grid;
   place-items: center;
   grid-area: b;
+
+  @media screen and (min-width: 1800px){
+    max-height: 380px;
+  }
 }
 
 </style>

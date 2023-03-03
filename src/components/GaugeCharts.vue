@@ -7,7 +7,7 @@
   GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="umbrella")
   GaugeChart(:key="newKey" :score="Score" :scoreAsPercent="scoreAsPercent" icon="wifi")
 
-  button(@click="forceRerender") Refresh Chart by updating key (also adds 10 to score)
+  button(@click="forceRerender") Refresh Chart by updating key (also adds 1 to score)
 
   //- .cards
   //-   ui-card(:full-width="true")
@@ -41,7 +41,7 @@ import {
 import UiButton from "@/components/ui/UiButton.vue";
 import UiCard from "@/components/ui/UiCard.vue";
 import UiPill from "@/components/ui/UiPill.vue";
-import MyChart from "@/components/my-chart.vue";
+import MyChart from "@/components/MyChart.vue";
 import GaugeChart from "@/components/gauge-chart.vue";
 import Chart from "chart.js/auto";
 
@@ -69,7 +69,6 @@ const forceRerender = () => {
   background: $chart-background;
   border: 1px solid rgba(128, 128, 128, 0.328);
   display: flex;
-  gap: 1rem;
   border-radius: 16px;
   flex-wrap: wrap;
   width: 100%;

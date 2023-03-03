@@ -132,7 +132,11 @@ export default defineComponent({
   background: $chart-background;
 
   @media screen and (min-width: 1200px) {
-    width: 200px;
+    width: 218px;
+  }
+
+  @media screen and (min-width: 1800px) {
+    width: 302px;
   }
 }
 
