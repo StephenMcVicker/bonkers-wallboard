@@ -126,7 +126,6 @@ export default defineComponent({
   padding: 10px;
   margin: 0 auto;
   width: 250px;
-  border: 1px solid rgba(128, 128, 128, 0.068);
   border-radius: 16px;
   position: relative;
   background: $chart-background;
